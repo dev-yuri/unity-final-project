@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _force;
     [SerializeField] private float _jumpForce;
     [SerializeField] GameObject _projectile;
+    private GameObject _object;
     public float Force
     {
         get { return _force; }
@@ -17,6 +18,12 @@ public class Player : MonoBehaviour
     {
         get {return _jumpForce;}
         set {_jumpForce = value;}
+    }
+
+    public GameObject Projectile
+    {
+        get {return _projectile;}
+        set {_projectile = value;}
     }
     private bool _grounded;
     private Transform _focalPoint;
@@ -38,6 +45,9 @@ public class Player : MonoBehaviour
                 Jump();
                 _grounded = false;
             }
+        
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+            Shoot();
     }
 
     //Abstraction
@@ -55,7 +65,8 @@ public class Player : MonoBehaviour
     public virtual void Shoot()
     {
         //shoot projectile
-        Instantiate(_projectile, transform.position + _focalPoint.forward + Vector3.up, _projectile.transform.rotation);
+        _object = Instantiate(_projectile, transform.position + _focalPoint.forward + Vector3.up, _projectile.transform.rotation);
+        _object.tag = "Normal Projectile";
     }
 
     private void OnCollisionEnter(Collision other)

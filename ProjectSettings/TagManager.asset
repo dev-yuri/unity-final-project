@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Fire Projectile
+  - Normal Projectile
   layers:
   - Default
   - TransparentFX

@@ -13,10 +13,4 @@ public class Projectile : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.AddForce(_focalPoint.forward * 10, ForceMode.Impulse);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

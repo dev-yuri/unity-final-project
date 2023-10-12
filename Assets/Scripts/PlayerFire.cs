@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerFire : Player
 {
 private int _doubleJump;
+private GameObject _object;
+private Transform _focalPoint;
 private void Awake()
 {
     JumpForce = 5f;
     Force = 2f;
     _doubleJump = 0;
+    _focalPoint = GameObject.Find("CameraRotator").GetComponent<Transform>();
 }
 // Update is called once per frame
     void Update()
@@ -31,6 +34,12 @@ private void Awake()
             base.Jump();
             _doubleJump++;
         }
+    }
+
+    public override void Shoot()
+    {
+        _object = Instantiate(Projectile, transform.position + _focalPoint.forward + Vector3.up, Projectile.transform.rotation);
+        _object.tag = "Fire Projectile";        
     }
 
     private void OnCollisionEnter(Collision other) {

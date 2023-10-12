@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _force: 2
   _jumpForce: 0
-  _projectile: {fileID: 0}
+  _projectile: {fileID: 3576675141039869643, guid: ab1ac7a863230914099f16b642e28201, type: 3}
 --- !u!54 &1961566408516751088
 Rigidbody:
   m_ObjectHideFlags: 0
